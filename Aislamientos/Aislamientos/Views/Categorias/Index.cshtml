@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Categorias";
+}
+
+ <div class="row">
+        <div class="col-2">
+            <button class="btn btn-secondary" onclick="cargarDataTable();" data-toggle="modal" data-target="#modalAgregarCategoria"> <i class="fas fa-plus"></i> READ_UNCOMMITED </button>
+        </div>
+          <div class="col-2">
+            <button class="btn btn-info" onclick="cargarDataTable();" data-toggle="modal" data-target="#modalAgregarCategoria2"> <i class="fas fa-plus"></i> READ_COMMITED </button>
+        </div>
+          <div class="col-2">
+            <button class="btn btn-warning" onclick="cargarDataTable();" data-toggle="modal" data-target="#modalAgregarCategoria3"> <i class="fas fa-plus"></i> Roll back tran </button>
+        </div>
+          <div class="col-2">
+            <button class="btn btn-danger" onclick="cargarDataTableRead();" > <i class="fas fa-plus"></i> Repetible </button>
+        </div>
+          <div class="col-2">
+            <button class="btn btn-secondary" onclick="cargarDataTableSerializable();"> <i class="fas fa-plus"></i> Serializable </button>
+        </div>
+        
+       
+    </div>
+        <br />
+    <br />
+
+
+ <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Lista de categorías</h2>
+        </div>
+        
+    </div>
+    
+    <br />
+    <br />
+    
+
+
+<table id="tblCategorias" class="table">
+  <thead class="thead-dark">
+    <tr>
+           <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Eliminar</th>
+    
+    </tr>
+  </thead>
+ 
+</table>
+
+
+
+<partial name="_AgregarCategoria" model="new Aislamientos.Models.Categoria()" />
+<partial name="_ReadCommit" model="new Aislamientos.Models.Categoria()" />
+<partial name="_RollBack" model="new Aislamientos.Models.Categoria()" />
+<partial name="_EditarRead" model="new Aislamientos.Models.Categoria()" />
+<partial name="_EditarSerializable" model="new Aislamientos.Models.Categoria()" />
+
+@section Scripts{
+    <script src="~/js/categoria.js"></script>
+}
